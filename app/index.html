@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8"/>
+  <title>ClickChat</title>
+  <meta name="description" content="ClickChat - Simple real-time messaging. :wq"/>
+  <meta name="viewport" content="width=device-width"/>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png"/>
+  <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png"/>
+  <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png"/>
+  <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png"/>
+  <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png"/>
+  <link rel="android-touch-icon" sizes="36x36" href="android-icon-36x36.png"/>
+  <link rel="android-touch-icon" sizes="48x48" href="android-icon-48x48.png"/>
+  <link rel="android-touch-icon" sizes="72x72" href="android-icon-72x72.png"/>
+  <link rel="android-touch-icon" sizes="96x96" href="android-icon-96x96.png"/>
+  <link rel="android-touch-icon" sizes="144x144" href="android-icon-144x144.png"/>
+  <link rel="android-touch-icon" sizes="192x192" href="android-icon-192x192.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png"/>
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="msapplication-TileColor" content="#ffffff"/>
+  <meta name="msapplication-TileImage" content="ms-icon-144x144.png"/>
+  <meta name="theme-color" content="#ffffff"/>
+
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css"/>
+  <!-- endbuild -->
+  <link type="text/plain" rel="author" href="humans.txt"/>
+</head>
+<body ng-app="clickchatWebApp">
+
+<!--[if lt IE 7]>
+<p class="browsehappy" translate>MSG_OUTDATED_BROWSER<a href="http://browsehappy.com/" translate>BT_OUTDATED_BROWSER</a>
+</p>
+<![endif]-->
+
+<div class="container">
+  <div ui-view=""></div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+  </div>
+</div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/services/init-service.js"></script>
+<script src="scripts/services/auth-service.js"></script>
+<script src="scripts/controllers/sign-in.js"></script>
+<script src="scripts/controllers/join.js"></script>
+<script src="scripts/controllers/chat.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>
