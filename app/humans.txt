@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Tech lover: Andrés Amado
+    Contact: acactown [at] gmail.com
+    Twitter: @acactown
+    From: Bogota, Colombia
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Nginx Server Configs, AngujarJS, Bootstrap, jQuery, Modernizr, Normalize
