@@ -1,4 +1,11 @@
 {
   "MSG_OUTDATED_BROWSER": "You are using an outdated browser.",
-  "BT_OUTDATED_BROWSER": "Upgrade your browser to improve your experience."
+  "MSG_FOOTER_START": "Make with all ",
+  "MSG_FOOTER_END": " in the world by ",
+  "MSG_SIGN_IN": "Login to start your session!",
+  "MSG_JOIN": "Welcome aboard!",
+  "BT_OUTDATED_BROWSER": "Upgrade your browser to improve your experience.",
+  "BT_SIGN_IN": "Sign in with Google",
+  "BT_SIGN_OUT": "Log-out",
+  "BT_JOIN": "Start"
 }

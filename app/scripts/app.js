@@ -22,8 +22,11 @@ angular
     'underscore'
   ])
 
-  .config(['$stateProvider', '$urlRouterProvider', '$translateProvider',
-    function($stateProvider, $urlRouterProvider, $translateProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$logProvider',
+    function($stateProvider, $urlRouterProvider, $translateProvider, $logProvider) {
+
+      // Safely writes the message into the browser's console
+      $logProvider.debugEnabled(true);
 
       // Add routing table
       $stateProvider
@@ -46,7 +49,7 @@ angular
           authenticate: false
         });
 
-      // Default route
+      // Add default route
       $urlRouterProvider.otherwise('sign-in');
 
       // Add translation table

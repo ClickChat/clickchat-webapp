@@ -1,4 +1,11 @@
 {
   "MSG_OUTDATED_BROWSER": "Voce está usando um navegador antigo.",
-  "BT_OUTDATED_BROWSER": "Atualize-o para melhorar sua experiência na internet."
+  "MSG_FOOTER_START": "Feito com tudo o ",
+  "MSG_FOOTER_END": " do mundo pelo ",
+  "MSG_SIGN_IN": "Fazer login para começar!",
+  "MSG_JOIN": "Bem-vindo!",
+  "BT_OUTDATED_BROWSER": "Atualize-o para melhorar sua experiência na internet.",
+  "BT_SIGN_IN": "Login com Google",
+  "BT_SIGN_OUT": "Sair",
+  "BT_JOIN": "Começar"
 }
