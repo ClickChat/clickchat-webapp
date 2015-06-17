@@ -1,0 +1,98 @@
+.wrapper, .row {
+  height: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wrapper:before, .wrapper:after, .column:before, .column:after {
+  content: "";
+  display: table;
+}
+
+.wrapper:after, .column:after {
+  clear: both;
+}
+
+.column {
+  height: 100%;
+  overflow: auto;
+  *zoom: 1;
+}
+
+.box {
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+
+.navbar-container {
+  border-width: 0;
+  color: #ffffff;
+  background-color: #c1c1c1;
+  top: 0;
+  position: fixed;
+  width: inherit;
+}
+
+.navbar-container .navbar-right {
+  margin-right: 0;
+}
+
+.navbar-container li > a, .navbar-toggle {
+  color: #efefef;
+}
+
+.navbar-container .dropdown-menu li a {
+  color: #2A4888;
+}
+
+.navbar-container .dropdown-menu li > a {
+  padding-left: 30px;
+}
+
+.navbar-container li > a:hover, .navbar-container li > a:focus, .navbar-container .open, .navbar-container .open > a, .navbar-container .open > a:hover, .navbar-container .open > a:focus {
+  background-color: #2A4888;
+  color: #fff;
+}
+
+.navbar-toggle, .close {
+  outline: 0;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+
+#main {
+  padding: 0px;
+  background-color: #faf9f9;
+}
+
+.badge {
+  color: #3B5999;
+  background-color: #fff;
+}
+
+.badge:hover, .badge-inverse {
+  background-color: #3B5999;
+  color: #fff;
+}
+
+#chat-container {
+  padding: 0;
+  margin: 70px 0 0 0;
+}
+
+#chat-container .panel-footer {
+  position: fixed;
+  bottom: 40px;
+  text-align: center;
+}
+
+#chat-inner-container {
+}
+
+@import "partials/sidebar";
+@import "partials/quotes";

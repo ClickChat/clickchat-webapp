@@ -68,6 +68,7 @@ angular
         })
         .determinePreferredLanguage()
         .fallbackLanguage('en')
+        .useSanitizeValueStrategy('escaped')
         .useLocalStorage();
 
     }])

@@ -4,8 +4,11 @@
   "MSG_FOOTER_END": " in the world by ",
   "MSG_SIGN_IN": "Login to start your session!",
   "MSG_JOIN": "Welcome aboard!",
+  "MSG_SEND_NEW_MESSAGE": "Send a message...",
   "BT_OUTDATED_BROWSER": "Upgrade your browser to improve your experience.",
   "BT_SIGN_IN": "Sign in with Google",
   "BT_SIGN_OUT": "Log-out",
-  "BT_JOIN": "Start"
+  "BT_JOIN": "Start",
+  "BT_OUT": "Leave",
+  "BT_SEND": "Send"
 }

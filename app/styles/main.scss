@@ -5,9 +5,11 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "sign-in";
-@import "join";
-@import "chat";
+html, body {
+  height: 100%;
+  padding: 0;
+  border: 0;
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -16,25 +18,25 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   padding: 0.2em 0;
 }
 
-body {
-  padding: 0;
-}
-
 .footer {
-  border-top: 1px solid #e5e5e5;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 40px;
-  padding-top: 8px;
   background-color: #313131;
   color: #777;
   text-align: center;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+.footer p {
+  margin: 0;
+  padding: 10px 0 0 0;
 }
+
+.text-muted {
+  font-style: italic;
+}
+
+@import "sign-in";
+@import "join";
+@import "chat";

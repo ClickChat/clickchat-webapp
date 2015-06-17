@@ -8,13 +8,16 @@
  * Controller of the clickchatWebApp
  */
 angular.module('clickchatWebApp')
-  .controller('SignInCtrl', ['$scope', '$log', 'init', function($scope, $log, init) {
+  .controller('SignInCtrl', ['$scope', '$state', '$log', 'init',
+    function($scope, $state, $log, init) {
 
-    init('SignInCtrl', true, function() {
-    });
+      init('SignInCtrl', true, function() {
+      });
 
-    $scope.login = function() {
-      $log.debug('LOGIN!');
-    };
+      $scope.login = function() {
+        $log.debug('LOGIN!');
 
-  }]);
+        $state.go('join');
+      };
+
+    }]);

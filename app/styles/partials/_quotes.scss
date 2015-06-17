@@ -1,0 +1,139 @@
+.quote .quote-author {
+  display: block
+}
+
+.quotes-container {
+  padding-bottom: 80px;
+}
+
+.quote .quote-author:before, .quote .quote-author:after {
+  content: " ";
+  display: table
+}
+
+.quote .quote-author:after {
+  clear: both
+}
+
+.quote .quote-author:before {
+  content: '“';
+  display: inline
+}
+
+.quote .quote-author:after {
+  content: '”';
+  display: inline
+}
+
+.quote .author {
+  display: block;
+  text-align: right;
+  font-size: 15px;
+  font-style: italic
+}
+
+.quote .author:before, .quote .author:after {
+  content: " ";
+  display: table
+}
+
+.quote .author:after {
+  clear: both
+}
+
+.quote .author:before {
+  content: '— ';
+  display: inline
+}
+
+.quotes-inner-container {
+  list-style: none outside none;
+  padding-left: 0
+}
+
+.quotes-inner-container li {
+  text-align: left;
+  margin: 0 20px 10px 20px;
+}
+
+.quotes-inner-container li .quote-content {
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+  font-style: italic;
+  position: relative
+}
+
+.quotes-inner-container li .quote-content:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: url('../images/quote-pointer-flipped.png') no-repeat;
+  bottom: -15px;
+  left: 45px;
+  width: 25px;
+  height: 16px
+}
+
+.quotes-inner-container li .quote-description {
+  display: block;
+  text-align: left;
+  margin-top: 20px
+}
+
+.quotes-inner-container li .quote-description .quote-author {
+  display: inline-block;
+  text-align: left;
+  padding-top: 3px
+}
+
+.quotes-inner-container li .quote-description .quote-author p {
+  font-size: 15px;
+  line-height: 1.2;
+  color: #909090
+}
+
+.quotes-inner-container li .quote-description .quote-author strong {
+  display: block;
+  color: #313131
+}
+
+.quotes-inner-container li .quote-description .avatar {
+  display: inline-block;
+  float: left;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.quotes-inner-container li .quote-description .avatar img {
+  width: 100%
+}
+
+.quotes-inner-container li.quote-right .quote-content:after {
+  background: url('../images/quote-pointer.png') no-repeat;
+  left: auto;
+  right: 45px
+}
+
+.quotes-inner-container li.quote-right .quote-description {
+  text-align: right
+}
+
+.quotes-inner-container li.quote-right .quote-description .avatar {
+  float: right;
+  margin-left: 10px
+}
+
+.quotes-inner-container li.quote-left .quote-description .avatar {
+  margin-right: 10px
+}
+
+.quotes-list .quotes-container .quote-page li.quote-right {
+  text-align: right
+}

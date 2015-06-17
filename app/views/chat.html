@@ -1,1 +1,83 @@
-<p>This is the chat view.</p>
+<div class="wrapper">
+  <div class="box">
+    <div class="row row-offcanvas row-offcanvas-left">
+
+      <!-- sidebar -->
+      <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+
+        <ul class="nav">
+          <li>
+            <a ui-sref="chat" data-toggle="offcanvas" class="visible-xs text-center"><i
+              class="glyphicon glyphicon-chevron-right"></i></a>
+          </li>
+        </ul>
+
+        <div class="nav hidden-xs">
+          <div ng-include="'views/partials/sidebar.html'"></div>
+        </div>
+
+      </div>
+      <!-- /sidebar -->
+
+      <!-- main right col -->
+      <div class="column col-sm-10 col-xs-11" id="main">
+
+        <!-- top nav -->
+        <div class="navbar navbar-container navbar-static-top">
+
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <div class="user-description">
+              <div class="user-avatar img-circle">
+                <img alt="Brett" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+              </div>
+              <div class="user-info">
+                <p>
+                  <strong>Andres Amado</strong>
+                  <small class="text-muted">acactown@gmail.com</small>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <nav class="collapse navbar-collapse" role="navigation">
+            <form class="navbar-form navbar-right">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-warning" ng-click="leave()" translate>BT_OUT</button>
+                <button type="button" class="btn btn-danger" ng-click="logout()" translate>BT_SIGN_OUT</button>
+              </div>
+            </form>
+          </nav>
+        </div>
+        <!-- /top nav -->
+
+        <!-- chat-container -->
+        <div id="chat-container">
+
+          <div id="chat-inner-container" ng-include="'views/partials/quotes.html'"></div>
+
+          <div class="panel-footer">
+            <div class="input-group text-center">
+              <textarea class="form-control custom-control" rows="2" style="resize:none" ng-model="message"
+                        ng-required="true" ng-maxlength="1000"
+                        placeholder="{{ 'MSG_SEND_NEW_MESSAGE' | translate}}"></textarea>
+              <span class="input-group-addon btn btn-success" ng-click="send()" translate>BT_SEND</span>
+            </div>
+          </div>
+
+        </div>
+        <!-- /chat-container -->
+
+      </div>
+      <!-- /main -->
+
+    </div>
+  </div>
+</div>
