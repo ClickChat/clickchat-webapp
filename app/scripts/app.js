@@ -93,7 +93,7 @@ angular
     }])
 
   .constant('CONFIG', {
-    apiEndpoint: 'http://clickchat-api.acactown.org:8080',
+    apiEndpoint: 'http://clickchat-api.acactown.org',
     tokenName: 'AUTH',
     defaultThumbnail: 'http://public.acactown.org/avatar.png',
     languages: [
