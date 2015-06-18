@@ -8,11 +8,11 @@
           <div class="quote-content">{{message.message}}</div>
           <div class="quote-description">
             <div class="avatar img-circle">
-              <img alt="Brett" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+              <img alt="{{message.authorName}}" ng-src="{{message.authorThumbnail}}">
             </div>
             <div class="quote-author">
               <p>
-                <strong>{{message.author}}</strong>
+                <strong>{{message.authorName}}</strong>
                 <small class="text-muted">{{message.time | date:'HH:mm'}}</small>
               </p>
             </div>

@@ -1,13 +1,13 @@
 <ul class="nav hidden-xs">
-  <li ng-repeat="i in getNumber(number) track by $index">
-    <div class="user-description">
+  <li ng-repeat="author in authors | orderBy:'name'">
+    <div id="{{author.id}}" class="user-description">
       <div class="user-avatar img-circle">
-        <img alt="Brett" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+        <img alt="{{author.name}}" ng-src="{{author.thumbnail}}">
       </div>
       <div class="user-info">
         <p>
-          <strong>Andres Amado</strong>
-          <small class="text-muted">acactown@gmail.com</small>
+          <strong>{{author.name}}</strong>
+          <small class="text-muted">{{author.email}}</small>
         </p>
       </div>
     </div>

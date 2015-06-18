@@ -68,7 +68,7 @@
               <textarea class="form-control custom-control" rows="2" style="resize:none" ng-model="message"
                         ng-required="true" ng-maxlength="1000"
                         placeholder="{{ 'MSG_SEND_NEW_MESSAGE' | translate}}"></textarea>
-              <span class="input-group-addon btn btn-success" ng-click="send()" translate>BT_SEND</span>
+              <span class="input-group-addon btn btn-success" ng-disabled="message.length === 0" ng-click="send()" translate>BT_SEND</span>
             </div>
           </div>
 

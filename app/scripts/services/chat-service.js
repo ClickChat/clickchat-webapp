@@ -8,8 +8,8 @@
  * Service in the clickchatWebApp.
  */
 angular.module('clickchatWebApp')
-  .service('chatService', ['$q', '$timeout', '_', 'CONFIG',
-    function($q, $timeout, _, CONFIG) {
+  .service('chatService', ['$q', '$http', '$timeout', '_', 'authService', 'CONFIG',
+    function($q, $http, $timeout, _, authService, CONFIG) {
 
       var service = {};
 
@@ -25,11 +25,7 @@ angular.module('clickchatWebApp')
       service.CHAT_TOPIC = '/topic/input';
       service.CHAT_BROKER = '/app/chat';
 
-      service.receive = function() {
-        return listener.promise;
-      };
-
-      service.send = function(output) {
+      var notify = function(output) {
         // You could be better :(
         var id = Math.floor(Math.random() * 1000000);
         output.id = id;
@@ -37,6 +33,76 @@ angular.module('clickchatWebApp')
         socket.stomp.send(service.CHAT_BROKER, {priority: 9}, JSON.stringify(output));
 
         inputIds.push(id);
+      };
+
+      var leave = function() {
+        var deferred = $q.defer();
+
+        var authConfig = authService.getAuthConfig();
+        $http.post(CONFIG.apiEndpoint + '/leave', {}, authConfig).then(function() {
+          var data = JSON.stringify({
+            token: authService.getToken()
+          });
+
+          notify({type: 'LEAVE', data: data});
+
+          deferred.resolve();
+        });
+
+        return deferred.promise;
+      };
+
+      service.join = function() {
+        var deferred = $q.defer();
+
+        var authConfig = authService.getAuthConfig();
+        $http
+          .get(CONFIG.apiEndpoint + '/join', authConfig)
+          .success(function(response) {
+            var data = JSON.stringify({
+              token: authService.getToken()
+            });
+
+            notify({type: 'JOIN', data: data});
+
+            deferred.resolve(response.authors);
+          })
+          .error(function(data) {
+            deferred.reject(data);
+          });
+
+        return deferred.promise;
+      };
+
+      service.leave = function() {
+        return leave();
+      };
+
+      service.logout = function() {
+        var deferred = $q.defer();
+
+        leave().then(function() {
+          authService
+            .logout()
+            .then(function() {
+              deferred.resolve();
+            });
+        });
+
+        return deferred.promise;
+      };
+
+      service.receive = function() {
+        return listener.promise;
+      };
+
+      service.send = function(message) {
+        var data = JSON.stringify({
+          token: authService.getToken(),
+          message: message
+        });
+
+        notify({type: 'MESSAGE', data: data});
       };
 
       var reconnect = function() {

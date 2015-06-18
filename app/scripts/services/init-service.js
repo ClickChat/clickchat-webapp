@@ -12,7 +12,6 @@ angular.module('clickchatWebApp')
     function($q, $rootScope, $state, $log, _, authService, CONFIG) {
 
       var init = function init(controller, redirect, next) {
-        $log.debug('INIT [%s]', controller);
         var isAuthenticated = authService.isAuthenticated();
 
         if (redirect && isAuthenticated) {
@@ -35,7 +34,6 @@ angular.module('clickchatWebApp')
             next();
           }
         }
-        $log.debug('END [%s]', controller);
       };
 
       return init;

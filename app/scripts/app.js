@@ -13,6 +13,7 @@ angular
   .module('clickchatWebApp', [
     'angular-loading-bar',
     'ngAnimate',
+    'toastr',
     'ngCookies',
     'ngResource',
     'ui.router',
