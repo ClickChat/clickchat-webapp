@@ -2,10 +2,10 @@
   <div class="join join-inner-container">
     <img class="join-img" src="./images/clickchat-240x60.png"/>
 
-    <img class="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
+    <img class="profile-img" ng-src="{{userDetails.thumbnail}}"/>
 
-    <p class="profile-name">Andres Amado</p>
-    <span class="profile-email">acactown@gmail.com</span>
+    <p class="profile-name">{{userDetails.name}}</p>
+    <span class="profile-email">{{userDetails.email}}</span>
 
     <div class="join-btn text-center">
       <div class="btn-group" role="group">
