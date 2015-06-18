@@ -8,14 +8,16 @@
  * Controller of the clickchatWebApp
  */
 angular.module('clickchatWebApp')
-  .controller('ChatCtrl', ['$scope', '$state', '$log', 'init',
-    function($scope, $state, $log, init) {
+  .controller('ChatCtrl', ['$scope', '$state', '$log', 'init', 'authService',
+    function($scope, $state, $log, init, authService) {
 
+      $scope.userDetails = {};
       $scope.message = '';
 
       $scope.number = 20;
 
-      init('ChatCtrl', false, function() {
+      init('ChatCtrl', false, function(userDetails) {
+        $scope.userDetails = userDetails;
       });
 
       $scope.send = function() {
@@ -25,15 +27,15 @@ angular.module('clickchatWebApp')
       };
 
       $scope.leave = function() {
-        $log.debug('LEAVE!');
-
         $state.go('join');
       };
 
       $scope.logout = function() {
-        $log.debug('LOGOUT!');
-
-        $state.go('sign-in');
+        authService
+          .logout()
+          .then(function() {
+            $state.go('sign-in');
+          });
       };
 
       $scope.getNumber = function(num) {

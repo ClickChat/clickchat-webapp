@@ -35,12 +35,12 @@
 
             <div class="user-description">
               <div class="user-avatar img-circle">
-                <img alt="Brett" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                <img alt="{{userDetails.name}}" ng-src="{{userDetails.thumbnail}}"/>
               </div>
               <div class="user-info">
                 <p>
-                  <strong>Andres Amado</strong>
-                  <small class="text-muted">acactown@gmail.com</small>
+                  <strong>{{userDetails.name}}</strong>
+                  <small class="text-muted">{{userDetails.email}}</small>
                 </p>
               </div>
             </div>
