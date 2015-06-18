@@ -18,12 +18,16 @@ angular
     'ui.router',
     'ngSanitize',
     'ngTouch',
+    'LocalStorageModule',
+    'googleplus',
     'pascalprecht.translate',
     'underscore'
   ])
 
-  .config(['$stateProvider', '$urlRouterProvider', '$translateProvider', '$logProvider',
-    function($stateProvider, $urlRouterProvider, $translateProvider, $logProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$translateProvider',
+    '$logProvider', 'GooglePlusProvider', 'localStorageServiceProvider',
+    function($stateProvider, $urlRouterProvider, $translateProvider,
+             $logProvider, GooglePlusProvider, localStorageServiceProvider) {
 
       // Safely writes the message into the browser's console
       $logProvider.debugEnabled(true);
@@ -40,13 +44,13 @@ angular
           url: '/join',
           templateUrl: 'views/join.html',
           controller: 'JoinCtrl',
-          authenticate: false
+          authenticate: true
         })
         .state('chat', {
           url: '/chat',
           templateUrl: 'views/chat.html',
           controller: 'ChatCtrl',
-          authenticate: false
+          authenticate: true
         });
 
       // Add default route
@@ -71,9 +75,26 @@ angular
         .useSanitizeValueStrategy('escaped')
         .useLocalStorage();
 
+      var scopes = 'https://www.googleapis.com/auth/plus.login ' +
+        'https://www.googleapis.com/auth/userinfo.email ' +
+        'https://www.googleapis.com/auth/userinfo.profile';
+
+      // Init Google+ provider
+      GooglePlusProvider.init({
+        clientId: '739262140361-b6ombrge0f9tl0dkb29dg82uh4b24cs5.apps.googleusercontent.com',
+        apiKey: 'eqbHrP4XqbfV_PzbffzTVWp0',
+        scopes: scopes
+      });
+
+      // Config localStorage
+      localStorageServiceProvider.setPrefix('CLICKCHAT');
+
     }])
 
   .constant('CONFIG', {
+    apiEndpoint: 'http://clickchat-api.acactown.org:8080',
+    tokenName: 'AUTH',
+    defaultThumbnail: 'http://public.acactown.org/avatar.png',
     languages: [
       {label: 'Español', value: 'es'},
       {label: 'Portugues', value: 'pt'},
