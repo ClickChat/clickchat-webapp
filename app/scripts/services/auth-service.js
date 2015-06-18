@@ -108,7 +108,8 @@ angular.module('clickchatWebApp')
         isAuthenticated: isAuthenticated,
         getAuthenticatedUser: getAuthenticatedUser,
         login: login,
-        logout: logout
+        logout: logout,
+        getToken: getToken
       };
 
     }

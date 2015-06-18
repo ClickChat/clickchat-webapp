@@ -40,6 +40,8 @@ module.exports = function(config) {
       'bower_components/angular-underscore-module/angular-underscore-module.js',
       'bower_components/angular-google-plus/dist/angular-google-plus.js',
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/sockjs/sockjs.js',
+      'bower_components/stomp-websocket/lib/stomp.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

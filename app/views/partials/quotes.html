@@ -3,19 +3,17 @@
     <ul class="quote-page quotes-inner-container">
 
       <li ng-class="($index % 2 == 0) ? 'quote-left' : 'quote-right'"
-          ng-repeat="i in getNumber(number) track by $index">
-        <div class="quote-wrapper">
-          <div class="quote-content">
-            Message
-          </div>
+          ng-repeat="message in messages | orderBy:'time'">
+        <div id="{{message.id}}" class="quote-wrapper">
+          <div class="quote-content">{{message.message}}</div>
           <div class="quote-description">
             <div class="avatar img-circle">
               <img alt="Brett" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png">
             </div>
             <div class="quote-author">
               <p>
-                <strong>Brett</strong>
-                <small class="text-muted">25 minutes ago</small>
+                <strong>{{message.author}}</strong>
+                <small class="text-muted">{{message.time | date:'HH:mm'}}</small>
               </p>
             </div>
           </div>
