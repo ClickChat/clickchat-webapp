@@ -8,18 +8,31 @@
  * Service in the clickchatWebApp.
  */
 angular.module('clickchatWebApp')
-  .factory('init', ['$q', '$rootScope', '$state', '_', 'authService',
-    function($q, $rootScope, $state, _, authService) {
+  .factory('init', ['$q', '$rootScope', '$state', '$log', '_', 'authService', 'CONFIG',
+    function($q, $rootScope, $state, $log, _, authService, CONFIG) {
 
       var init = function init(controller, redirect, next) {
-        var authenticated = authService.isAuthenticated();
+        var isAuthenticated = authService.isAuthenticated();
 
-        if (redirect && authenticated) {
+        if (redirect && isAuthenticated) {
           $state.transitionTo('join');
         } else if (_.isFunction(next)) {
-          console.log('INIT [%s]', controller);
-          next();
-          console.log('END [%s]', controller);
+          if (isAuthenticated) {
+            authService
+              .getAuthenticatedUser()
+              .then(function(userDetails) {
+                if (!userDetails.thumbnail) {
+                  userDetails.thumbnail = CONFIG.defaultThumbnail;
+                }
+
+                next(userDetails);
+              }, function(error) {
+                //TODO: Add forbidden page!
+                $log.error('Error getting userDetails!', error);
+              });
+          } else {
+            next();
+          }
         }
       };
 

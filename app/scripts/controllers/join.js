@@ -8,9 +8,33 @@
  * Controller of the clickchatWebApp
  */
 angular.module('clickchatWebApp')
-  .controller('JoinCtrl', ['$scope', 'init', function($scope, init) {
+  .controller('JoinCtrl', ['$scope', '$state', '$log', '$translate', 'init', 'authService', 'CONFIG',
+    function($scope, $state, $log, $translate, init, authService, CONFIG) {
 
-    init('JoinCtrl', false, function() {
-    });
+      $scope.languages = {};
+      $scope.userDetails = {};
 
-  }]);
+      init('JoinCtrl', false, function(userDetails) {
+        $scope.languages = CONFIG.languages;
+        $scope.userDetails = userDetails;
+      });
+
+      $scope.changeLanguage = function(language) {
+        $translate.use(language);
+      };
+
+      $scope.join = function() {
+        $log.debug('JOIN!');
+
+        $state.go('chat');
+      };
+
+      $scope.logout = function() {
+        authService
+          .logout()
+          .then(function() {
+            $state.go('sign-in');
+          });
+      };
+
+    }]);

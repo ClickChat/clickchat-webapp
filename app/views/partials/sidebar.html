@@ -1,0 +1,15 @@
+<ul class="nav hidden-xs">
+  <li ng-repeat="author in authors | orderBy:'name'">
+    <div id="{{author.id}}" class="user-description">
+      <div class="user-avatar img-circle">
+        <img alt="{{author.name}}" ng-src="{{author.thumbnail}}">
+      </div>
+      <div class="user-info">
+        <p>
+          <strong>{{author.name}}</strong>
+          <small class="text-muted">{{author.email}}</small>
+        </p>
+      </div>
+    </div>
+  </li>
+</ul>

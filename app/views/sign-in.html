@@ -1,1 +1,14 @@
-<p>This is the sign-in view.</p>
+<div class="sign-in-container">
+  <div class="sign-in sign-in-inner-container">
+    <img class="sign-in-img" src="./images/clickchat-horizontal-240x132.png"/>
+
+    <div class="text-center">
+      <button type="button" class="btn btn-social btn-google" ng-click="login()">
+        <i class="fa fa-google"></i>
+        {{ 'BT_SIGN_IN' | translate }}
+      </button>
+    </div>
+
+    <p class="sign-in-message" translate>MSG_SIGN_IN</p>
+  </div>
+</div>

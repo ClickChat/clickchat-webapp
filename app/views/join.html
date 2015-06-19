@@ -1,1 +1,29 @@
-<p>This is the join view.</p>
+<div class="join-container">
+  <div class="join join-inner-container">
+    <img class="join-img" src="./images/clickchat-240x60.png"/>
+
+    <img class="profile-img" ng-src="{{userDetails.thumbnail}}"/>
+
+    <p class="profile-name">{{userDetails.name}}</p>
+    <span class="profile-email">{{userDetails.email}}</span>
+
+    <div class="join-btn text-center">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-danger" ng-click="logout()" translate>BT_SIGN_OUT</button>
+        <button type="button" class="btn btn-success" ng-click="join()" translate>BT_JOIN</button>
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li ng-repeat="language in languages">
+            <a ui-sref="join" ng-click="changeLanguage(language.value)">{{language.label}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="join-message" translate>MSG_JOIN</p>
+
+  </div>
+</div>

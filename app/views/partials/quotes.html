@@ -1,0 +1,25 @@
+<div class="quotes-list">
+  <div class="quotes-container">
+    <ul class="quote-page quotes-inner-container">
+
+      <li ng-class="($index % 2 == 0) ? 'quote-left' : 'quote-right'"
+          ng-repeat="message in messages | orderBy:'time'">
+        <div id="{{message.id}}" class="quote-wrapper">
+          <div class="quote-content">{{message.message}}</div>
+          <div class="quote-description">
+            <div class="avatar img-circle">
+              <img alt="{{message.authorName}}" ng-src="{{message.authorThumbnail}}">
+            </div>
+            <div class="quote-author">
+              <p>
+                <strong>{{message.authorName}}</strong>
+                <small class="text-muted">{{message.time | date:'HH:mm'}}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</div>
