@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-Apache_2.0-blue.svg)]()
 [![engine](https://img.shields.io/badge/iojs-v2.1.0-yellow.svg)]()
 [![npm](https://img.shields.io/npm/v/npm.svg)]()
-[![Build Status](https://travis-ci.org/ClickChat/clickchat-webapp?branch=master)](https://travis-ci.org/ClickChat/clickchat-webapp)
+[![Build Status](https://travis-ci.org/ClickChat/clickchat-webapp.svg?branch=master)](https://travis-ci.org/ClickChat/clickchat-webapp)
 [![Coverage Status](https://coveralls.io/repos/ClickChat/clickchat-webapp/badge.svg)](https://coveralls.io/r/ClickChat/clickchat-webapp)
 
 ## Prerequisites
