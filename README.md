@@ -11,7 +11,7 @@
 You will need the following things properly installed on your computer.
 
 * [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
+* [Node.js](http://nodejs.org/) (with NPM & NVM)
 * [Yeoman](http://yeoman.io/)
 * [Grunt CLI](http://gruntjs.com/)
 * [Bower](http://bower.io/)

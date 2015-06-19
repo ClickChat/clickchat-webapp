@@ -22,7 +22,8 @@ angular
     'LocalStorageModule',
     'googleplus',
     'pascalprecht.translate',
-    'underscore'
+    'underscore',
+    'angular-momentjs'
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', '$translateProvider',

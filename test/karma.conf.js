@@ -29,6 +29,8 @@ module.exports = function(config) {
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-loading-bar/build/loading-bar.js',
+      'bower_components/moment/moment.js',
+      'bower_components/angular-momentjs/angular-momentjs.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
