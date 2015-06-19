@@ -42,6 +42,16 @@ npm test
 * `grunt serve`
 * Visit your ClickChat app at [http://localhost:9000](http://localhost:9000)
 
+## Dist
+
+Upload to a static hosted website on Amazon S3
+
+```
+grunt
+cd dist
+aws s3 sync . s3://clickchat.acactown.org --delete --acl public-read
+```
+
 ### Code Generators
 
 Make use of the many generators for code, try `yo --help` for more details
