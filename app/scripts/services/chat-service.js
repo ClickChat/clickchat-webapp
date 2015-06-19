@@ -8,8 +8,8 @@
  * Service in the clickchatWebApp.
  */
 angular.module('clickchatWebApp')
-  .service('chatService', ['$q', '$http', '$timeout', '_', 'authService', 'CONFIG',
-    function($q, $http, $timeout, _, authService, CONFIG) {
+  .service('chatService', ['$q', '$http', '$timeout', '$log', '_', 'authService', 'CONFIG',
+    function($q, $http, $timeout, $log, _, authService, CONFIG) {
 
       var service = {};
 
@@ -30,7 +30,11 @@ angular.module('clickchatWebApp')
         var id = Math.floor(Math.random() * 1000000);
         output.id = id;
 
-        socket.stomp.send(service.CHAT_BROKER, {priority: 9}, JSON.stringify(output));
+        try {
+          socket.stomp.send(service.CHAT_BROKER, {priority: 9}, JSON.stringify(output));
+        } catch (error) {
+          $log.error('Error sending over socket!', error);
+        }
 
         inputIds.push(id);
       };
@@ -46,6 +50,14 @@ angular.module('clickchatWebApp')
 
           notify({type: 'LEAVE', data: data});
 
+          $timeout(function() {
+            try {
+              socket.stomp.disconnect();
+            } catch (error) {
+              $log.error('Error closing socket!', error);
+            }
+          }, 1000);
+          
           deferred.resolve();
         });
 
@@ -63,7 +75,9 @@ angular.module('clickchatWebApp')
               token: authService.getToken()
             });
 
-            notify({type: 'JOIN', data: data});
+            $timeout(function() {
+              notify({type: 'JOIN', data: data});
+            }, 3000);
 
             deferred.resolve(room);
           })
