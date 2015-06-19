@@ -8,7 +8,8 @@
  * Controller of the clickchatWebApp
  */
 angular.module('clickchatWebApp')
-  .controller('ChatCtrl', ['$scope', '$timeout', '$location', '$state', '$log', '$moment', '_', 'toastr', 'init', 'chatService',
+  .controller('ChatCtrl', 
+    ['$scope', '$timeout', '$location', '$state', '$log', '$moment', '_', 'toastr', 'init', 'chatService',
     function($scope, $timeout, $location, $state, $log, $moment, _, toastr, init, chatService) {
 
       $scope.userDetails = {};
