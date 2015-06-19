@@ -8,8 +8,8 @@
  * Controller of the clickchatWebApp
  */
 angular.module('clickchatWebApp')
-  .controller('ChatCtrl', ['$scope', '$timeout', '$location', '$state', '$log', '_', 'toastr', 'init', 'chatService',
-    function($scope, $timeout, $location, $state, $log, _, toastr, init, chatService) {
+  .controller('ChatCtrl', ['$scope', '$timeout', '$location', '$state', '$log', '$moment', '_', 'toastr', 'init', 'chatService',
+    function($scope, $timeout, $location, $state, $log, $moment, _, toastr, init, chatService) {
 
       $scope.userDetails = {};
       $scope.messages = [];
@@ -21,8 +21,30 @@ angular.module('clickchatWebApp')
 
         chatService
           .join()
-          .then(function(authors) {
-            $scope.authors = authors;
+          .then(function(room) {
+            $scope.authors = room.authors;
+
+            $scope.messages = _.map(room.messages, function(message) {
+              var date = message.date;
+              var author = message.author;
+
+              //TODO: Translate timed labels
+              return {
+                id: message.id,
+                message: message.message,
+                date: new Date(date),
+                dateLabel: $moment(date).fromNow(),
+                authorName: author.name,
+                authorThumbnail: author.thumbnail
+              };
+            });
+
+            $timeout(function() {
+              var lastMessage = _.last($scope.messages);
+              if (lastMessage) {
+                $location.hash(lastMessage.id);
+              }
+            });
           }, function(error) {
             $log.error(error);
           });
@@ -58,9 +80,7 @@ angular.module('clickchatWebApp')
       };
 
       chatService.receive().then(null, null, function(input) {
-        var id = input.id;
         var data = input.data;
-        var time = input.time;
         var author = null;
         var authorId = null;
         switch (input.type) {
@@ -73,8 +93,12 @@ angular.module('clickchatWebApp')
               author = _.findWhere($scope.authors, {id: authorId});
             }
 
-            message.time = time;
+            var id = input.id;
+            var date = input.time;
+
             message.id = id;
+            message.date = new Date(date);
+            message.dateLabel = $moment(date).format('HH:mm');
             message.authorName = author.name;
             message.authorThumbnail = author.thumbnail;
 
@@ -92,6 +116,7 @@ angular.module('clickchatWebApp')
                 return (author.id === authorId);
               });
 
+              //TODO: Translate Leave message
               toastr.info(author.name + ' leave the room!', 'Information');
             }
 
@@ -105,6 +130,7 @@ angular.module('clickchatWebApp')
                 $scope.authors.push(author);
               }
 
+              //TODO: Translate Join message
               toastr.info(author.name + ' join to room!', 'Information');
             }
 

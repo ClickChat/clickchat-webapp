@@ -58,14 +58,14 @@ angular.module('clickchatWebApp')
         var authConfig = authService.getAuthConfig();
         $http
           .get(CONFIG.apiEndpoint + '/join', authConfig)
-          .success(function(response) {
+          .success(function(room) {
             var data = JSON.stringify({
               token: authService.getToken()
             });
 
             notify({type: 'JOIN', data: data});
 
-            deferred.resolve(response.authors);
+            deferred.resolve(room);
           })
           .error(function(data) {
             deferred.reject(data);
@@ -114,8 +114,6 @@ angular.module('clickchatWebApp')
       var startListener = function() {
         socket.stomp.subscribe(service.CHAT_TOPIC, function(data) {
           var input = JSON.parse(data.body);
-          input.time = new Date(input.time);
-
           var inputId = input.id;
           if (_.contains(inputIds, inputId)) {
             input.self = true;

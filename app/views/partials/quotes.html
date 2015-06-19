@@ -3,7 +3,7 @@
     <ul class="quote-page quotes-inner-container">
 
       <li ng-class="($index % 2 == 0) ? 'quote-left' : 'quote-right'"
-          ng-repeat="message in messages | orderBy:'time'">
+          ng-repeat="message in messages | orderBy:'date'">
         <div id="{{message.id}}" class="quote-wrapper">
           <div class="quote-content">{{message.message}}</div>
           <div class="quote-description">
@@ -13,7 +13,7 @@
             <div class="quote-author">
               <p>
                 <strong>{{message.authorName}}</strong>
-                <small class="text-muted">{{message.time | date:'HH:mm'}}</small>
+                <small class="text-muted">{{message.dateLabel}}</small>
               </p>
             </div>
           </div>
