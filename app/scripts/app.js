@@ -95,6 +95,9 @@ angular
 
   .constant('CONFIG', {
     apiEndpoint: 'http://clickchat-api.acactown.org',
+    chatSocketURL: 'http://clickchat-api.acactown.org/chat',
+    chatTopic: '/topic/input',
+    chatBroker: '/app/chat',
     tokenName: 'AUTH',
     defaultThumbnail: 'http://public.acactown.org/avatar.png',
     languages: [

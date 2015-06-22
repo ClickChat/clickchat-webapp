@@ -89,15 +89,15 @@ angular.module('clickchatWebApp')
           switch (input.type) {
             case 'MESSAGE':
               var message = JSON.parse(data);
+              var id = input.id;
+              var date = input.time;
+
               authorId = message.author;
               if (authorId === $scope.userDetails.id) {
                 author = _.pick($scope.userDetails, 'name', 'thumbnail');
               } else {
                 author = _.findWhere($scope.authors, {id: authorId});
               }
-
-              var id = input.id;
-              var date = input.time;
 
               message.id = id;
               message.date = new Date(date);
@@ -138,7 +138,7 @@ angular.module('clickchatWebApp')
               }
 
               break;
-        }
-      });
+          }
+        });
 
     }]);
