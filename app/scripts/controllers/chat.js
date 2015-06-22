@@ -9,8 +9,8 @@
  */
 angular.module('clickchatWebApp')
   .controller('ChatCtrl',
-  ['$scope', '$timeout', '$location', '$state', '$log', '$moment', '_', 'toastr', 'init', 'chatService',
-    function($scope, $timeout, $location, $state, $log, $moment, _, toastr, init, chatService) {
+  ['$scope', '$timeout', '$location', '$state', '$log', '$moment', '_', 'Idle', 'toastr', 'init', 'chatService',
+    function($scope, $timeout, $location, $state, $log, $moment, _, Idle, toastr, init, chatService) {
 
       $scope.userDetails = {};
       $scope.messages = [];
@@ -40,12 +40,12 @@ angular.module('clickchatWebApp')
               };
             });
 
-            $timeout(function() {
-              var lastMessage = _.last($scope.messages);
-              if (lastMessage) {
-                $location.hash(lastMessage.id);
-              }
-            }, 1000);
+            var lastMessage = _.last($scope.messages);
+            if (lastMessage) {
+              $location.hash(lastMessage.id);
+            }
+
+            Idle.watch();
           }, function(error) {
             $log.error(error);
           });
@@ -60,7 +60,7 @@ angular.module('clickchatWebApp')
         }
       };
 
-      $scope.leave = function() {
+      var leave = function() {
         chatService
           .leave()
           .then(function() {
@@ -69,6 +69,9 @@ angular.module('clickchatWebApp')
             $log.error(error);
           });
       };
+
+
+      $scope.leave = leave;
 
       $scope.logout = function() {
         chatService
@@ -79,6 +82,13 @@ angular.module('clickchatWebApp')
             $log.error(error);
           });
       };
+
+      $scope.$on('IdleStart', function() {
+        //TODO: Translate Idle message
+        toastr.warning('No user activity was detected!', 'Information');
+
+        leave();
+      });
 
       chatService
         .receive()
@@ -106,9 +116,8 @@ angular.module('clickchatWebApp')
               message.authorThumbnail = author.thumbnail;
 
               $scope.messages.push(message);
-              $timeout(function() {
-                $location.hash(id);
-              }, 1000);
+
+              $location.hash(id);
 
               break;
             case 'LEAVE':

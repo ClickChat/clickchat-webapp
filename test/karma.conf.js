@@ -45,6 +45,7 @@ module.exports = function(config) {
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/sockjs/sockjs.js',
       'bower_components/stomp-websocket/lib/stomp.min.js',
+      'bower_components/ng-idle/angular-idle.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
