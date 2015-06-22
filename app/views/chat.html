@@ -65,9 +65,9 @@
 
           <div class="panel-footer">
             <div class="input-group text-center">
-              <textarea class="form-control custom-control" rows="2" style="resize:none" ng-model="message"
-                        ng-required="true" ng-maxlength="1000"
-                        placeholder="{{ 'MSG_SEND_NEW_MESSAGE' | translate}}"></textarea>
+              <textarea id="input-message" class="form-control custom-control" rows="2" style="resize:none" ng-model="message"
+                        ng-keyup="$event.keyCode == 13 ? send() : null" ng-required="true" ng-maxlength="1000"
+                        placeholder="{{ 'MSG_SEND_NEW_MESSAGE' | translate}}" autofocus></textarea>
               <span class="input-group-addon btn btn-success" ng-disabled="message.length === 0" ng-click="send()" translate>BT_SEND</span>
             </div>
           </div>

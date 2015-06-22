@@ -17,6 +17,22 @@ angular.module('clickchatWebApp')
       $scope.authors = [];
       $scope.message = '';
 
+      var setInputFocus = function() {
+        angular
+          .element('#input-message')
+          .trigger('focus');
+      };
+
+      var leave = function() {
+        chatService
+          .leave()
+          .then(function() {
+            $state.go('join');
+          }, function(error) {
+            $log.error(error);
+          });
+      };
+
       init('ChatCtrl', false, function(userDetails) {
         $scope.userDetails = userDetails;
 
@@ -46,6 +62,8 @@ angular.module('clickchatWebApp')
             }
 
             Idle.watch();
+
+            setInputFocus();
           }, function(error) {
             $log.error(error);
           });
@@ -56,20 +74,11 @@ angular.module('clickchatWebApp')
         if (message) {
           chatService.send(message);
 
+          setInputFocus();
+
           $scope.message = '';
         }
       };
-
-      var leave = function() {
-        chatService
-          .leave()
-          .then(function() {
-            $state.go('join');
-          }, function(error) {
-            $log.error(error);
-          });
-      };
-
 
       $scope.leave = leave;
 
