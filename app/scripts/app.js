@@ -23,13 +23,14 @@ angular
     'googleplus',
     'pascalprecht.translate',
     'underscore',
-    'angular-momentjs'
+    'angular-momentjs',
+    'ngIdle'
   ])
 
   .config(['$stateProvider', '$urlRouterProvider', '$translateProvider',
-    '$logProvider', 'GooglePlusProvider', 'localStorageServiceProvider',
+    '$logProvider', 'GooglePlusProvider', 'localStorageServiceProvider', 'IdleProvider',
     function($stateProvider, $urlRouterProvider, $translateProvider,
-             $logProvider, GooglePlusProvider, localStorageServiceProvider) {
+             $logProvider, GooglePlusProvider, localStorageServiceProvider, IdleProvider) {
 
       // Safely writes the message into the browser's console
       $logProvider.debugEnabled(true);
@@ -91,10 +92,16 @@ angular
       // Config localStorage
       localStorageServiceProvider.setPrefix('CLICKCHAT');
 
+      // Config Idle Settings
+      IdleProvider.idle(30);
+
     }])
 
   .constant('CONFIG', {
     apiEndpoint: 'http://clickchat-api.acactown.org',
+    chatSocketURL: 'http://clickchat-api.acactown.org/chat',
+    chatTopic: '/topic/input',
+    chatBroker: '/app/chat',
     tokenName: 'AUTH',
     defaultThumbnail: 'http://public.acactown.org/avatar.png',
     languages: [

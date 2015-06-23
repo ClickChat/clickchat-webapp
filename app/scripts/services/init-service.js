@@ -8,8 +8,8 @@
  * Service in the clickchatWebApp.
  */
 angular.module('clickchatWebApp')
-  .factory('init', ['$q', '$rootScope', '$state', '$log', '_', 'authService', 'CONFIG',
-    function($q, $rootScope, $state, $log, _, authService, CONFIG) {
+  .factory('init', ['$q', '$state', '$log', '_', 'authService', 'CONFIG',
+    function($q, $state, $log, _, authService, CONFIG) {
 
       var init = function init(controller, redirect, next) {
         var isAuthenticated = authService.isAuthenticated();
