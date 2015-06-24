@@ -104,14 +104,14 @@ angular.module('clickchatWebApp')
       chatService
         .receive()
         .then(null, null, function(input) {
-          if(input){
+          if (input) {
             var data = input.data;
             var author = null;
             var authorId = null;
             switch (input.type) {
               case 'MESSAGE':
                 var message = JSON.parse(data);
-                if(message){
+                if (message) {
                   var id = input.id;
                   var date = input.time;
 
@@ -136,7 +136,7 @@ angular.module('clickchatWebApp')
                 break;
               case 'LEAVE':
                 author = JSON.parse(data);
-                if(author){
+                if (author) {
                   authorId = author.id;
                   if (authorId !== $scope.userDetails.id) {
                     $scope.authors = _.reject($scope.authors, function(author) {
@@ -151,7 +151,7 @@ angular.module('clickchatWebApp')
                 break;
               case 'JOIN':
                 author = JSON.parse(data);
-                if(author){
+                if (author) {
                   authorId = author.id;
                   if (authorId !== $scope.userDetails.id) {
                     var another = _.findWhere($scope.authors, {id: authorId});

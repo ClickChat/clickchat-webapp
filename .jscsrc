@@ -1,6 +1,6 @@
 {
   "preset": "google",
-  "excludeFiles": ["node_modules", "bower_components", "dist"],
+  "excludeFiles": ["node_modules", "bower_components", "dist", ".tmp"],
   "requireCurlyBraces": [
      "else",
      "for",
