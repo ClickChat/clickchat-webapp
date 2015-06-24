@@ -23,7 +23,7 @@ angular.module('clickchatWebApp')
         $translate.use(language);
       };
 
-      $scope.join = function() {        
+      $scope.join = function() {
         $state.go('chat');
       };
 
